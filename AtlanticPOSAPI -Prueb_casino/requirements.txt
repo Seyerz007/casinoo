@@ -1,0 +1,14 @@
+fastapi
+uvicorn
+psycopg2
+SQLAlchemy
+python-dotenv
+alembic
+passlib[bcrypt]
+python-jose[cryptography]
+python-multipart
+pytest
+requests
+coverage
+jinja2
+aiohttp

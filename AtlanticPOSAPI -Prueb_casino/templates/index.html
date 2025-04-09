@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% block content %}
+ 
+<!-- Header -->
+<header class="bg-white py-3">
+<div class="container d-flex justify-content-between align-items-center">
+<h1 class="logo text-danger">Atlantic City Casino</h1>
+<nav>
+<ul class="nav">
+<li class="nav-item"><a class="nav-link" href="#">Apuestas en vivo</a></li>
+<li class="nav-item"><a class="nav-link" href="#">Apuestas deportivas</a></li>
+<li class="nav-item"><a class="nav-link" href="#">Casino</a></li>
+<li class="nav-item"><a class="nav-link" href="#">Casino en vivo</a></li>
+<li class="nav-item"><a class="nav-link" href="#">Promociones</a></li>
+</ul>
+</nav>
+<div>
+<a href="/create_user" class="btn btn-outline-danger">Regístrate</a>
+<button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#loginModal">Inicia sesión</button>
+</div>
+</div>
+</header>
+ 
+<!-- Carousel Banner -->
+<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+<div class="carousel-inner">
+    {% for i in range(1, 6) %}
+<div class="carousel-item {% if i == 1 %}active{% endif %}">
+<img src="/static/imagenes/banner{{ i }}.jpg"
+             onerror="this.onerror=null; this.src='/static/imagenes/banner{{ i }}.jpeg';"
+             class="d-block w-100" alt="Banner {{ i }}">
+</div>
+    {% endfor %}
+</div>
+<button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+</button>
+<button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+<span class="carousel-control-next-icon" aria-hidden="true"></span>
+</button>
+</div>
+ 
+<!-- Módulos Deportivos -->
+<div class="container my-5">
+<h3>Apuestas deportivas</h3>
+<div class="row">
+    {% for i in range(1, 13) %}
+<div class="col-md-2 mb-4">
+<div class="card">
+          {% if i == 1 %}
+<img src="/static/imagenes/modulogif.gif"
+                 onerror="this.onerror=null; this.src='/static/imagenes/modulogif.jpg';"
+                 class="card-img-top" alt="Módulo 1">
+          {% else %}
+<img src="/static/imagenes/modulo{{ i }}.jpg"
+                 onerror="this.onerror=null; this.src='/static/imagenes/modulo{{ i }}.jpeg';"
+                 class="card-img-top" alt="Módulo {{ i }}">
+          {% endif %}
+<button class="btn btn-danger play-btn">¡Juega Aquí!</button>
+<div class="card-body text-center">
+<h6>Módulo {{ i }}</h6>
+<p>Descripción del módulo {{ i }}</p>
+</div>
+</div>
+</div>
+    {% endfor %}
+</div>
+</div>
+ 
+<!-- Modal Inicio Sesión -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="loginModalLabel">Bienvenido a Atlantic City Casino</h5>
+<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+<form>
+<div class="mb-3">
+<input type="email" class="form-control" placeholder="Usuario o Email">
+</div>
+<div class="mb-3">
+<input type="password" class="form-control" placeholder="Contraseña">
+</div>
+<button type="submit" class="btn btn-dark w-100">INGRESA</button>
+</form>
+<div class="text-center mt-2">
+<a href="#">¿Olvidaste tu contraseña?</a>
+</div>
+</div>
+<div class="modal-footer">
+<div class="text-center w-100">
+          ¿No tienes una cuenta?<br>
+<a href="/templates/create_user.html" class="btn btn-danger">¡REGÍSTRATE AQUÍ!</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+ 
+<!-- Footer -->
+<footer class="bg-white py-5">
+<div class="container text-center">
+<h4 class="text-danger">Atlantic City Casino</h4>
+<p class="mb-4">
+      Atlantic City ¡Para ganar, hay que creer! Juega y gana mientras disfrutas de tus juegos favoritos.
+      Los mejores juegos, eventos exclusivos, ofertas y promociones especiales te esperan.
+</p>
+<button class="btn btn-outline-danger">Conócenos más</button>
+<hr class="my-4">
+<p class="small">Atlantic City Casino © 2025. Todos los derechos reservados.</p>
+</div>
+</footer>
+ 
+{% endblock %}

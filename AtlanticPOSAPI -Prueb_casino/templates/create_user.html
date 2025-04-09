@@ -1,0 +1,182 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Registro - Atlantic City</title>
+{% endblock %}
+
+{% block head_extra %}
+<link href="https://fonts.googleapis.com/css2?family=Antonio&family=Rubik&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/styles.css">
+<style>
+    .btn-register {
+        background-color: #0d6efd;
+        color: white;
+        font-weight: bold;
+        padding: 10px 30px;
+        border-radius: 5px;
+        border: none;
+    }
+    .btn-register:hover {
+        background-color: #0b5ed7;
+        color: white;
+    }
+    .card {
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .card-header {
+        border-bottom: 2px solid #f0f0f0;
+        padding: 20px;
+    }
+    .text-info {
+        color: #0dcaf0 !important;
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+<div class="row justify-content-center">
+<div class="col-lg-8">
+<div class="card">
+<div class="card-header bg-white text-center">
+<h3>REGÍSTRATE AQUÍ</h3>
+</div>
+<div class="card-body">
+
+  {% if msj|length > 1 %}
+  <div class="alert alert-{{type_alert}} alert-dismissible fade show" role="alert">
+    <strong>{{ msj }}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  </div>
+  {% endif %}
+
+  <form method="POST">
+
+    <div class="mb-3">
+      <input type="text" class="form-control" name="username" placeholder="Nombre de usuario" required>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <select class="form-select" name="tipo_documento" required>
+          <option value="" selected disabled>Tipo de documento</option>
+          <option>DNI</option>
+          <option>Pasaporte</option>
+        </select>
+      </div>
+      <div class="col-md-6">
+        <input type="text" class="form-control" name="numero_documento" placeholder="Número de documento" required>
+      </div>
+    </div>
+
+    <div class="mb-3 text-info">
+      Ingresa tus <strong>nombres</strong> y <strong>apellidos</strong> exactamente como se muestran en tu <strong>documento</strong>.
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <input type="text" class="form-control" name="nombre" placeholder="Nombres" required>
+      </div>
+      <div class="col-md-6">
+        <input type="text" class="form-control" name="apellido" placeholder="Apellidos" required>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <input type="date" class="form-control" name="fecha_nacimiento" required>
+      </div>
+      <div class="col-md-6">
+        <select class="form-select" name="genero" required>
+          <option value="" selected disabled>Género</option>
+          <option>Masculino</option>
+          <option>Femenino</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <input type="email" class="form-control" name="correo" placeholder="Correo electrónico (te enviaremos un código)" required>
+    </div>
+
+    <div class="mb-3 text-info">
+      Sugerimos que tu <strong>contraseña</strong> sea única para tu cuenta. Evita reutilizar contraseñas de otras plataformas.
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <!-- Asegurado: tiene name="password" -->
+        <input type="password" class="form-control" name="password" placeholder="Contraseña" required>
+      </div>
+      <div class="col-md-6">
+        <!-- Este campo no se envía, así que está bien sin name -->
+        <input type="password" class="form-control" placeholder="Confirmar contraseña">
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <input type="text" class="form-control" name="direccion" placeholder="Dirección actual" required>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-4">
+        <input type="text" class="form-control" name="departamento" placeholder="Departamento" required>
+      </div>
+      <div class="col-md-4">
+        <input type="text" class="form-control" name="provincia" placeholder="Provincia" required>
+      </div>
+      <div class="col-md-4">
+        <input type="text" class="form-control" name="distrito" placeholder="Distrito" required>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <input type="tel" class="form-control" name="telefono" placeholder="Celular" required>
+    </div>
+
+    <div class="mb-3">
+      <input type="checkbox" id="no_pep" name="no_pep"> Declaro que <strong>NO</strong> soy una Persona Expuesta Políticamente (PEP)<br>
+      <input type="checkbox" id="si_pep" name="si_pep"> Declaro que <strong>SÍ</strong> soy una Persona Expuesta Políticamente (PEP)
+    </div>
+
+    <div class="mb-3">
+      <label>Elige aquí tu regalo de bienvenida</label><br>
+      <input type="radio" name="regalo" value="casino"> 30 tiros <strong>GRATIS</strong> de casino<br>
+      <input type="radio" name="regalo" value="deporte"> Apuesta deportiva <strong>GRATIS</strong> de S/30
+    </div>
+
+    <div class="mb-3 text-center">
+      <input type="checkbox" name="acepta_terminos" required>
+      Al registrarme acepto haber leído y estar de acuerdo con los <strong>Términos y Condiciones</strong>, <strong>Política de cookies</strong> y la <strong>Políticas de Privacidad</strong>.
+    </div>
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-register">REGISTRAR</button>
+    </div>
+  </form>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+  // Validación para que solo se pueda marcar una opción PEP
+  document.getElementById('no_pep').addEventListener('change', function () {
+    if (this.checked) {
+      document.getElementById('si_pep').checked = false;
+    }
+  });
+
+  document.getElementById('si_pep').addEventListener('change', function () {
+    if (this.checked) {
+      document.getElementById('no_pep').checked = false;
+    }
+  });
+</script>
+{% endblock %}

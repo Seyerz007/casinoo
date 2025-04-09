@@ -1,0 +1,54 @@
+/* Estilos generales */
+body {
+    font-family: 'Rubik', sans-serif;
+    background-color: #f2f2f2;
+}
+
+/* Tipografía especial para títulos */
+h1, h3, h5, .navbar-brand {
+    font-family: 'Antonio', sans-serif;
+}
+
+/* Banner principal */
+.banner {
+    background-image: url('banner-casino.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
+
+/* Estilos de tarjetas */
+.card {
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.card img {
+    height: 220px;
+    object-fit: cover;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    transition: transform 0.3s;
+}
+
+/* Botones personalizados */
+.btn-register {
+    background-color: red;
+    color: white;
+}
+
+/* Footer */
+footer {
+    margin-top: 20px;
+}
